@@ -9,4 +9,4 @@
 ###### PHP Ver	   : 5.5.9
 ###### MYSQL Ver   : 5.5.62
 ### ::MYSQL Setting::
-##### Check mysql_setting_file.txt pls
+##### Check mysql_setting_file.txt pls tnx
