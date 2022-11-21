@@ -1,5 +1,5 @@
 # PHP Open source Board
-## made by Yoobi(hungry0623@naver.com)
+## made by Yoobi(thisisyoobi@gmail.com)
 ### This PHP board created for practice secure coding,
 ### so security settings are not applied.
 ###### Ver1.0
