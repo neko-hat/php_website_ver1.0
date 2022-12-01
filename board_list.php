@@ -75,6 +75,6 @@ Reviewer	:
 			<button align=center onclick="location.href='./write.php'">Write</button>
 		</center>
 
-		<h4 align=center>- Ver.2020.01.05 -<br>made by ubyung1<br><a href = "https://hack2savelife.blogspot.com" target="_blank">https://hack2savelife.blogspot.com</a></h4>
+		<h4 align=center>- Ver.2020.01.05 -<br>made by yoobi<br><a href = "https://velog.io/@yoobi/about" target="_blank">https://velog.io/@yoobi/about</a></h4>
 	</body>
 </html>
