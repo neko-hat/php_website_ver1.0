@@ -38,9 +38,18 @@ Reviewer	:
 ?>
 		<center>
 			Welcome! <?=$_SESSION["userid"]?><br><br>
+			<button onclick="location.href='./change_pw.php'">비밀번호 변경</button>
 			<button onclick="location.href='./logout.php'">SIGN OUT</button>
 		</center>
-<?php
+<?
+		if($_SESSION['userid'] == "admin")
+		{
+?>
+			<script>
+				window.open('./board_list_admin.php', target="_blank");
+			</script>
+<?php		
+		}
 	}
 ?>
 	</body>
