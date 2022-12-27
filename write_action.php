@@ -54,7 +54,7 @@ Reviewer	:
 	
 		//set filename adding number and '_'
 		//Duplicate Prevention
-		$name_save = $number.'_'.$file_name;			
+		$name_save = $file_name;
 		
 		//filee_uploading part
 		if(move_uploaded_file($file['tmp_name'], $upload_directory.$name_save))
