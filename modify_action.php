@@ -23,7 +23,7 @@ Reviewer	:
 		$file = $_FILES['upfile'];
 		$upload_directory='./up_file/';
 		$file_name = $file['name'];
-		$name_save = $number.'_'.$file_name;
+		$name_save = $file_name;
 
 		$max_file_size = 5242880;
 		
