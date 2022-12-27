@@ -11,14 +11,9 @@ Reviewer	:
 */
 
 	//Connect MYSQL & download logic
-	$number = $_REQUEST['file_id'];
-	$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db');
-        session_start();
-        $query = "select name_save from board where number =$number";
-        $result = $connect->query($query);
-        $rows = mysqli_fetch_assoc($result);
-
-	$filepath = './up_file/'.$rows['name_save'];
+	$target = $_REQUEST['file_name'];
+	
+	$filepath = './up_file/'.$target;
 	$filesize = filesize($filepath);
 	$path_parts = pathinfo($filepath);
 	$filename = $path_parts['basename'];
