@@ -29,7 +29,7 @@ Reviewer	:
 </style>
 	<body>
 <?php
-		// connect MYSQL
+		
 		$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die ("connect fail");
 		$query ="select * from board order by number desc";
 		$result = $connect->query($query);
@@ -42,6 +42,14 @@ Reviewer	:
 		<table align = center>
 			<thead align = "center">
 				<tr>
+					<div id="search_box" align="center">
+						<form action="./board_list_search.php" method="get">
+							<input type="text" name="search" size="40" required="required" /> <button>검색</button>
+						</form>
+					</div>
+				</tr>
+				<br>
+				<tr>
 					<td width = "50" align="center">Number</td>
 					<td width = "500" align = "center">Title</td>
 					<td width = "100" align = "center">Written by</td>
@@ -50,7 +58,7 @@ Reviewer	:
 				</tr>
 			</thead>
 			<tbody>
-<?php
+<?php	
 				while($rows = mysqli_fetch_assoc($result)) //Repeate number of DB rows
 				{ 
 ?>				      	<tr>
