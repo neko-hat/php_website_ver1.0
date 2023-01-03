@@ -52,15 +52,14 @@ Reviewer	:
 			</script>
 <?php
 		}
-
-		else
-		{
+	}
+	else
+	{
 ?>
-			<script>
-				alert("Permission Denied.");
-				history.back();
-			</script>
+		<script>
+			alert("Permission Denied.");
+			history.back();
+		</script>
 <?php
-		}
 	}
 ?>
