@@ -69,6 +69,7 @@ Reviewer	:
 					<td width = "100" align = "center">Written by</td>
 					<td width = "200" align = "center">Date</td>
 					<td width = "50" align = "center">Views</td>
+					<td width = "50" align = "center">Del</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -83,6 +84,7 @@ Reviewer	:
 						<td width = "100" align = "center"><?php echo $rows['id']?></td>
 						<td width = "200" align = "center"><?php echo $rows['date']?></td>
 						<td width = "50" align = "center"><?php echo $rows['hit']?></td>
+						<td width = "50" align = "center"><button align=center onclick="location.href='delete_admin.php?id=admin&number=<?php echo $rows['number']?>'">Del</button></td>
 					</tr>
 <?php
 					$total--;
