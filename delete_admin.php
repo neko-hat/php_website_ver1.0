@@ -27,7 +27,7 @@ Reviewer	:
 	session_start();
 
 
-	$URL = "./board_list.php";
+	$URL = "./board_list_admin.php";
 
 	//Check SESSION userid with number's userid
 	if($id=='admin')
