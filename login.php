@@ -32,9 +32,7 @@ Reviewer	:
 			<button id="join" onclick="location.href='./join.html'">SIGN UP</button>
 		</center>
 		<?php
-}
-	else
-	{
+	} else {
 ?>
 		<center>
 			Welcome! <?=$_SESSION["userid"]?><br><br>
@@ -44,6 +42,7 @@ Reviewer	:
 <?
 		if($_SESSION['userid'] == "admin")
 		{
+
 ?>
 			<script>
 				window.open('./board_list_admin.php', target="_blank");
