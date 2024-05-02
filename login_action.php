@@ -8,8 +8,9 @@
 	$pw=$_GET['pw'];
 
 	//Check the ID's existence
-	$query = "select * from member where id='$id'";
-	$result	= $connect->query($query);
+	$query = $connect->prepare("select * from member where id=?");
+	$query->bind_param('s', $id);
+	$result	= $query->execute();
 
 
 	//If the ID exist
