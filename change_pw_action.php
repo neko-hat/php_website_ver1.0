@@ -10,10 +10,11 @@ Reviewer	:
 -->
 
 <?php
+	session_start();
 	//Connect MYSQL
 	$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die("fail");
 
-	$id=$_GET["id"];
+	$id=$_SESSION['userid'];
 	$pw=$_GET["pw"];
 
 	//Save user entered value in DB	
