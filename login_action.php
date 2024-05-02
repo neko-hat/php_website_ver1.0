@@ -10,11 +10,12 @@
 	//Check the ID's existence
 	$query = $connect->prepare("select * from member where id=?");
 	$query->bind_param('s', $id);
-	$result	= $query->execute();
+	$query->execute();
+	$result = $query->get_result();
 
 
 	//If the ID exist
-	if(mysqli_num_rows($result)===1)
+	if($result->num_rows===1)
 	{
 		$row=mysqli_fetch_assoc($result);
 

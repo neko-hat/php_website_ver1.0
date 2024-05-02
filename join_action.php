@@ -8,11 +8,13 @@
 	$date = date('Y-m-d H:i:s');
 
 	//Check the id value exist or not
-	$query = "select * from member where id ='$id'";
-	$result = $connect->query($query);
+	$query = $connect->prepare("select * from member where id=?");
+	$query->bind_param('s', $id);
+	$query->execute();
+	$result = $query->get_result();
 
 	//If id value exist
-	if(mysqli_num_rows($result)===1)
+	if($result->num_rows===1)
 	{
 ?>
 		<script>
@@ -24,10 +26,12 @@
 	}
 
 	//Save user entered value in DB	
-	$query = "insert into member (id, pw, email, date, permit) values ('$id', '$pw', '$email', '$date', 0)";
-	$result = $connect->query($query);
+	$query = $connect->prepare("insert into member (id, pw, email, date, permit) values (?, ?, ?, ?, 0)");
+	$query->bind_param('ssss', $id, $pw, $email, $date);
+	$query->execute();
+	$result = $query->get_result();
 
-	if($result)
+	if(!$result)
 	{
 ?>
 		<script>
