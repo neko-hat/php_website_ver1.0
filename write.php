@@ -1,13 +1,3 @@
-<!--
-::: CONTENTS :::
-Project		: php_website
-Version		: 1.0
-Filename	: write.php
-Date		: 2020/01/08
-Purpose		: Ready for studying secure coding of WEB(PHP)
-Programmer	: Yoobi (ubyung1@gmail.com)
-Reviewer	:
--->
 <html>
 <?php
 	session_start();

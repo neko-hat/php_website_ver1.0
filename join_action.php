@@ -1,14 +1,3 @@
-<!--
-::: CONTENTS :::
-Project		: php_website
-Version		: 1.0
-Filename	: join_action.php
-Date		: 2020/01/05
-Purpose		: Ready for studying secure coding of WEB(PHP)
-Programmer	: Yoobi (ubyung1@gmail.com)
-Reviewer	:
--->
-
 <?php
 	//Connect MYSQL
 	$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die("fail");
