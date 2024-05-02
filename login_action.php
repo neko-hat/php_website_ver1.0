@@ -13,12 +13,12 @@
 
 
 	//If the ID exist
-	if(mysqli_num_rows($result)==1)
+	if(mysqli_num_rows($result)===1)
 	{
 		$row=mysqli_fetch_assoc($result);
 
 		//If PW correct, make SESSION
-		if($row['pw']==$pw)
+		if($row['pw']===$pw)
 		{
 			$_SESSION['userid']=$id;
 			if(isset($_SESSION['userid']))

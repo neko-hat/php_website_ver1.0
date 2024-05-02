@@ -19,7 +19,7 @@
 	$URL = "./board_list_admin.php";
 
 	//Check SESSION userid with number's userid
-	if($id=='admin')
+	if($id==='admin')
 	{
 		//Delete Post
 		$query = "delete from board WHERE number=$number";

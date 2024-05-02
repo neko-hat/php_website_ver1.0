@@ -12,7 +12,7 @@
 	$result = $connect->query($query);
 
 	//If id value exist
-	if(mysqli_num_rows($result)==1)
+	if(mysqli_num_rows($result)===1)
 	{
 ?>
 		<script>

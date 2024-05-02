@@ -26,7 +26,7 @@
 <?php   
 	}
 	//If user id not the owner of POST, reject
-	else if($_SESSION['userid']==$usrid)
+	else if($_SESSION['userid']===$usrid)
 	{
 ?>
 		<form method = "POST" action = "modify_action.php" enctype="multipart/form-data">
