@@ -12,8 +12,9 @@
 	$URL = './board_list.php';
 
 	//INSERT info to DB
-	$query = "INSERT INTO board (number, title, content, id, password, date, hit, name_orig, name_save) VALUES (null, '$title', '$content', '$id', '$pw', '$date', 0, 0, 0)"; 
-	$result = $connect->query($query);	
+	$query = $connect->prepare("INSERT INTO board (number, title, content, id, password, date, hit, name_orig, name_save) VALUES (null, ?, ?, ?, ?, ?, 0, 0, 0)"); 
+	$query->bind_param("sssss", $title, $content, $id, $pw, $date);
+	$result = $query->execute();
 
 	//If the file exist
 	if(isset($_FILES['upfile']) && $_FILES['upfile']['name'] != "")
@@ -48,8 +49,9 @@
 		//filee_uploading part
 		if(move_uploaded_file($file['tmp_name'], $upload_directory.$name_save))
 		{
-			$query = "update board set name_orig = '$file_name', name_save = '$name_save' where number=$number";
-			$result = $connect->query($query);
+			$query = $connect->prepare("update board set name_orig = ?, name_save = ? where number=?");
+			$query->bind_param("ssi", $file_name, $name_save, $number)
+			$result = $query->execute();
 
 			if($result)
 			{
