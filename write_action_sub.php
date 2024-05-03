@@ -21,7 +21,7 @@
 
 	//Set values
 	$number = $_GET["number"];
-	$id = $_GET["name"];
+	$id = $_SESSION['userid'];
 	$pw = 0;
 	$content = $_GET["content"];
 	$date = date('Y-m-d H:i:s');
