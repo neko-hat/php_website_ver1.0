@@ -20,7 +20,7 @@
 	$hit = $connect->prepare("update board set star=star+1 where number=?");
 	$hit->bind_param("i", $number);
 	$hit->execute();
-	$query = $connect->prepare("select title, content, id, date, hit, star, name_orig from board where number =$number");
+	$query = $connect->prepare("select title, content, id, date, hit, star, name_orig from board where number = ?");
 	$query->bind_param("i", $number);
 	$query->execute();
 	$result = $query->get_result();
