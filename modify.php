@@ -2,7 +2,7 @@
 	//Connect MYSQL & get INFO
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("connect fail");
 	$id = $_GET["id"];
-	$number = $_GET["number"];
+	$number = htmlspecialchars($_GET["number"]);
 	$query = $connect->prepare("select title, content, date, id, name_orig from board where number=?");
 	$query->bind_param('i', $number);
 	$query->execute();
