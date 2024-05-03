@@ -1,7 +1,7 @@
 <?php
 	//Connect MYSQL
 	$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die("connect fail");
-	$number = $_GET['number'];
+	$number = htmlspecialchars($_GET['number']);
 	session_start();
 
 	//Check SESSION
