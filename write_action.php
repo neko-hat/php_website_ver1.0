@@ -12,6 +12,7 @@
 			location.replace("<?php echo $URL?>");
 		</script>
 <?php
+	die;
 	}
 ?>
 <?php
