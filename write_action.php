@@ -50,7 +50,7 @@
 		if(move_uploaded_file($file['tmp_name'], $upload_directory.$name_save))
 		{
 			$query = $connect->prepare("update board set name_orig = ?, name_save = ? where number=?");
-			$query->bind_param("ssi", $file_name, $name_save, $number)
+			$query->bind_param("ssi", $file_name, $name_save, $number);
 			$result = $query->execute();
 
 			if($result)
