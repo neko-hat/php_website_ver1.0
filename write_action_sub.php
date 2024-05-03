@@ -10,8 +10,9 @@
 	$date = date('Y-m-d H:i:s');
 
 	//INSERT info to DB
-	$query = "INSERT INTO sub_board (number, content, id, password, date, star) VALUES ('$number', '$content', '$id', '$pw', '$date', 0)"; 
-	$result = $connect->query($query);	
+	$query = $connect->prepare("INSERT INTO sub_board (number, content, id, password, date, star) VALUES (?, ?, ?, ?, ?, 0)");
+	$query->bind_param("sssss", $number, $content, $id, $pw, $date);
+	$result = $query->execute();	
 
 	mysqli_close($connect);
 ?>
