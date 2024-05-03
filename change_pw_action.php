@@ -10,10 +10,9 @@
 	//"update board set title='$title', content='$content', date='$date', name_orig='$file_name', name_save='$name_save'";
 	$query = $connect->prepare("update member set pw=? where id=?");
 	$query->bind_param('ss', $id, $pw);
-	$query->execute();
-	$result = $query->get_result();
+	$result = $query->execute();
 
-	if(!$result)
+	if($result)
 	{
 ?>
 		<script>

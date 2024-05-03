@@ -28,10 +28,9 @@
 	//Save user entered value in DB	
 	$query = $connect->prepare("insert into member (id, pw, email, date, permit) values (?, ?, ?, ?, 0)");
 	$query->bind_param('ssss', $id, $pw, $email, $date);
-	$query->execute();
-	$result = $query->get_result();
+	$result = $query->execute();
 
-	if(!$result)
+	if($result)
 	{
 ?>
 		<script>
