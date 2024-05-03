@@ -3,10 +3,10 @@
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("fail");
 
 	//Set values
-	$id = $_POST["name"];
+	$id = htmlspecialchars($_POST["name"]);
 	$pw = 0;
-	$title = $_POST["title"];
-	$content = $_POST["content"];
+	$title = htmlspecialchars($_POST["title"]);
+	$content = htmlspecialchars($_POST["content"]);
 	$date = date('Y-m-d H:i:s');
 
 	$URL = './board_list.php';
