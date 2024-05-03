@@ -3,10 +3,8 @@
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("connect fail");
 	$id = $_GET["id"];
 	$number = $_GET["number"];
-	$query = $connect->prepare("select title, content, date, id, name_orig, name_save from board where number=?");
-	$query->bind_param("i", $number);
-	$query->execute();
-	$result = $query->get_result();
+	$query = "select title, content, date, id, name_orig, name_save from board where number=$number";
+	$result = $connect->query($query);
 	$rows = mysqli_fetch_assoc($result);
 
 	$title = $rows['title'];
@@ -24,9 +22,8 @@
 	if($_SESSION['userid']===$usrid)
 	{
 		//Delete Post
-		$query = $connect->prepare("delete from board WHERE number=?");
-		$query->bind_param("i", $number);
-		$result = $query->execute();
+		$query = "delete from board WHERE number=$number";
+		$result = $connect->query($query);
 
 		if($result)
 		{
