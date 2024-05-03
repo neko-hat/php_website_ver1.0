@@ -1,4 +1,21 @@
 <?php
+	session_start();
+	//Connect MYSQL
+	$URL = "./board_list.php";
+
+	// If user do not have SESSION back to $URL
+	if(!isset($_SESSION['userid']))
+	{
+?>
+		<script>
+			alert("Login First!");
+			location.replace("<?php echo $URL?>");
+		</script>
+<?php
+	die;
+	}
+?>
+<?php
 	//Connect MYSQL
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("fail");
 
