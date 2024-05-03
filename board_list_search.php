@@ -19,9 +19,12 @@
 <?php
   		$search_con = $_GET['search'];
 		$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die ("connect fail");
-		$query ="select * from board where title like '%$search_con%' order by number desc";
-		$result = $connect->query($query);
-		$total = mysqli_num_rows($result);
+		$query = $connect->prepare("select * from board where title like ? order by number desc");
+		$param = '%' . $search_con . '%';	
+		$query->bind_param('s', $param);
+		$query->execute();
+		$result = $query->get_result();
+		$total = $result->num_rows;
 ?>
 	
 		<h2 align=center>Simple PHP board</h2>	
@@ -48,8 +51,10 @@
 			</thead>
 			<tbody>
 <?php	
-				while($rows = mysqli_fetch_assoc($result)) //Repeate number of DB rows
-				{ 
+				if($total >= 1)
+				{
+					while($rows = mysqli_fetch_assoc($result)) //Repeate number of DB rows
+					{ 
 ?>				      	<tr>
 						<td width = "50" align = "center"><?php echo $rows['number']?></td>
 						<td width = "500" align = "center">
@@ -61,7 +66,8 @@
 					</tr>
 <?php
 					$total--;
-				}
+					}
+				}	
 ?>
 			</tbody>
 		</table>
