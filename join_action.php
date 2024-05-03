@@ -2,7 +2,7 @@
 	//Connect MYSQL
 	$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die("fail");
 
-	$id=$_GET["id"];
+	$id=htmlspecialchars($_GET["id"]);
 	$pw=$_GET["pw"];
 	$email=$_GET["email"];
 	$date = date('Y-m-d H:i:s');
