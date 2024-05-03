@@ -14,7 +14,7 @@
 	$result = $query->get_result();
 
 	//If id value exist
-	if($result->num_rows===1)
+	if($result->num_rows>=1)
 	{
 ?>
 		<script>
