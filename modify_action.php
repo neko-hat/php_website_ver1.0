@@ -30,8 +30,9 @@
 		//file uploading part
 		if(move_uploaded_file($file['tmp_name'], $upload_directory.$name_save))
 		{
-			$query = "update board set title='$title', content='$content', date='$date', name_orig='$file_name', name_save='$name_save'";
-			$result = $connect->query($query);
+			$query = $connect->prepare("update board set title=?, content=?, date=?, name_orig=?, name_save=?");
+			$query->bind_param("sssss", $title, $content, $date, $file_name, $name_save);
+			$result = $query->execute();
 
 			if($result)
 			{
@@ -54,8 +55,9 @@
 	//if the file do not exist
 	else
 	{
-		$query = "update board set title='$title', content='$content', date='$date' where number=$number";
-		$result = $connect->query($query);
+		$query = $connect->prepare("update board set title=?, content=?, date=? where number=?");
+		$query->bind_param("sssi", $title, $content, $date, $number);
+		$result = $query->execute();
 	
 		if($result)
 		{
