@@ -25,6 +25,7 @@
 		$query->execute();
 		$result = $query->get_result();
 		$total = $result->num_rows;
+		$search_con = htmlspecialchars($search_con);
 ?>
 	
 		<h2 align=center>Simple PHP board</h2>	
