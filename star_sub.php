@@ -5,10 +5,13 @@
 	$date = $_GET['date'];
 
 	//add hit=hit+1 for view count
-	$hit = "update sub_board set star=star+1 where number=$number and date='$date'";
-	$connect->query($hit);
-	$query = "select title, content, id, date, hit, star, name_orig from board where number =$number";
-	$result = $connect->query($query);
+	$hit = $connect->prepare("update sub_board set star=star+1 where number=? and date=?");
+	$hit->bind_param("is", $number, $date);
+	$hit->execute();
+	$query = $connect->prepare("select title, content, id, date, hit, star, name_orig from board where number = ?");
+	$query->bind_param("i", $number);
+	$query->execute();
+	$result = $query->get_result();
 	$rows = mysqli_fetch_assoc($result);
 
 ?>
