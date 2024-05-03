@@ -22,7 +22,7 @@
 <?php
 	//Check SESSION
 
-	if($_SESSION['userid'] != 'admin')
+	if($_SESSION['userid'] !== 'admin')
 	{
 ?>
 		<script>

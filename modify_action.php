@@ -7,7 +7,7 @@
 	$date = date('Y-m-d H:i:s');
 
 	//if the file exist
-	if(isset($_FILES['upfile']) && $_FILES['upfile']['name'] != "")
+	if(isset($_FILES['upfile']) && $_FILES['upfile']['name'] !== "")
 	{
 		$file = $_FILES['upfile'];
 		$upload_directory='./up_file/';
