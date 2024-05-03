@@ -44,7 +44,8 @@
 	
 		//set filename adding number and '_'
 		//Duplicate Prevention
-		$name_save = $file_name;
+		$name_save = md5_file($_FILES['upfile']['tmp_name']);
+
 		
 		//filee_uploading part
 		if(move_uploaded_file($file['tmp_name'], $upload_directory.$name_save))
