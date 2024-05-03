@@ -17,10 +17,13 @@
 	}
 
 	//add hit=hit+1 for view count
-	$hit = "update board set star=star+1 where number=$number";
-	$connect->query($hit);
-	$query = "select title, content, id, date, hit, star, name_orig from board where number =$number";
-	$result = $connect->query($query);
+	$hit = $connect->prepare("update board set star=star+1 where number=?");
+	$hit->bind_param("i", $number);
+	$hit->execute();
+	$query = $connect->prepare("select title, content, id, date, hit, star, name_orig from board where number =$number");
+	$query->bind_param("s", $number);
+	$query->execute();
+	$result = $query->get_result();
 	$rows = mysqli_fetch_assoc($result);
 
 ?>
