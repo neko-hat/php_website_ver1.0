@@ -17,7 +17,7 @@
 </style>
 	<body>
 <?php
-  		$search_con = $_GET['search'];
+  		$search_con =  htmlspecialchars($_GET['search']);
 		$connect = mysqli_connect('localhost', 'yoobi', 'toor', 'php_db') or die ("connect fail");
 		$query = $connect->prepare("select * from board where title like ? order by number desc");
 		$param = '%' . $search_con . '%';	
@@ -25,7 +25,6 @@
 		$query->execute();
 		$result = $query->get_result();
 		$total = $result->num_rows;
-		$search_con = htmlspecialchars($search_con);
 ?>
 	
 		<h2 align=center>Simple PHP board</h2>	
