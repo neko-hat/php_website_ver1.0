@@ -1,9 +1,9 @@
 <?php
 	//Connect MYSQL
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die ("connect fail");
-	$number = $_POST["number"];
-	$title = $_POST["title"];
-	$content = $_POST["content"];
+	$number = htmlspecialchars($_POST["number"]);
+	$title = htmlspecialchars($_POST["title"]);
+	$content = htmlspecialchars($_POST["content"]);
 	$date = date('Y-m-d H:i:s');
 
 	//if the file exist
