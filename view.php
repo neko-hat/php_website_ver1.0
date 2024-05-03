@@ -26,10 +26,10 @@
 	$result = $query->get_result();
 	$rows = mysqli_fetch_assoc($result);
 
-	$sub_query = $connect->prepare("select * from sub_board where number =? order by number desc");
+	$sub_query = $connect->prepare("select * from sub_board where number = ? order by number desc");
 	$sub_query->bind_param("i", $number);
 	$sub_query->execute();
-	$sub_result = $query->get_result();
+	$sub_result = $sub_query->get_result();
 	$total = $sub_result->num_rows;
 ?>
 <!-- Simple style -->
