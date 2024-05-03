@@ -3,7 +3,7 @@
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("connect fail");
 	$id = $_GET["id"];
 	$number = $_GET["number"];
-	$query = "select title, content, date, id, name_orig from board where number=$number";
+	$query = "select title, content, date, id, name_orig from board where number=?";
 	$result = $connect->query($query);
 	$rows = mysqli_fetch_assoc($result);
 
