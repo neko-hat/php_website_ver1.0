@@ -19,7 +19,7 @@
 	$connect = mysqli_connect("localhost", "yoobi", "toor", "php_db") or die("fail");
 
 	//Set values
-	$id = htmlspecialchars($_POST["name"]);
+	$id = htmlspecialchars($_SESSION['userid']);
 	$pw = 0;
 	$title = htmlspecialchars($_POST["title"]);
 	$content = htmlspecialchars($_POST["content"]);
