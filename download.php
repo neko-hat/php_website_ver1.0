@@ -1,7 +1,7 @@
 <?php
 
 	//Connect MYSQL & download logic
-	$target = $_REQUEST['file_name'];
+	$target = basename($_REQUEST['file_name']);
 	
 	$filepath = './up_file/'.$target;
 	$filesize = filesize($filepath);
