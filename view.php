@@ -17,15 +17,20 @@
 	}
 
 	//add hit=hit+1 for view count
-	$hit = "update board set hit=hit+1 where number=$number";
-	$connect->query($hit);
-	$query = "select title, content, id, date, hit, star, name_orig from board where number =$number";
-	$result = $connect->query($query);
+	$hit = $connect->prepare("update board set hit=hit+1 where number=?");
+	$hit->bind_param("i", $number);
+	$hit->execute();
+	$query = $connect->prepare("select title, content, id, date, hit, star, name_orig from board where number =?");
+	$query->bind_param("i", $number);
+	$query->execute();
+	$result = $query->get_result();
 	$rows = mysqli_fetch_assoc($result);
 
-	$sub_query = "select * from sub_board where number =$number order by number desc";
-	$sub_result = $connect->query($sub_query);
-	$total = mysqli_num_rows($sub_result);
+	$sub_query = $connect->prepare("select * from sub_board where number =? order by number desc");
+	$sub_query->bind_param("i", $number);
+	$sub_query->execute();
+	$sub_result = $query->get_result();
+	$total = $sub_result->num_rows;
 ?>
 <!-- Simple style -->
 <style>
